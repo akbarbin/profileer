@@ -1,7 +1,12 @@
+<!-- MVP.css quickstart template: https://github.com/andybrewer/mvp/ -->
+
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" href="https://via.placeholder.com/70x70">
     <title>Profileer</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Profileer to check phone number">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,6 +18,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <a href="/"><img alt="Logo" src="https://via.placeholder.com/200x70?text=Logo" height="70"></a>
+        <ul>
+          <li>Welcome</li>
+          <li><a href="/#">Sign In</a></li>
+          <li><a href="/#"><i>Sign Up</i></a></li>
+        </ul>
+      </nav>
+      <h1>Accurate, fast and secure phone validation service</h1>
+      <p>We help you land to validate your customer phones</p>
+      <br>
+      <p><a href="#phone-validator-section"><i>Test phone here</i></a><a href="#"><b>Try it free &rarr;</b></a></p>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
