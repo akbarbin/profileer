@@ -21,8 +21,9 @@ module Services
 
       def create_phone
         @phone = ::Phone.new(@params)
-        return if @phone.save
-        @errors = @phone.errors
+        @errors = @phone.errors unless @phone.save
+        StatsWorker.perform_async
+        @phone
       end
     end
   end

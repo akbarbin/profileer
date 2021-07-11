@@ -6,8 +6,8 @@
     </header>
     <aside>
       <label for="number">A phone number:</label>
-      <input v-model="number" type="text" id="number" name="number" size="20" placeholder="Enter phone 681111111111">
-       <p v-if="errors['number']"><mark>{{ errors["number"][0] }}</mark></p>
+      <input v-model="number" type="text" id="number" name="number" size="25" placeholder="Country code 6285188788761">
+      <p v-if="errors['number']"><mark>{{ errors["number"][0] }}</mark></p>
       <button v-on:click="validatePhone">Submit</button>
       <p v-if="loading">Loading...</p>
       <br>

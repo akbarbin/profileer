@@ -1,22 +1,19 @@
 <template>
   <div id="app">
     <TestPhoneValidation/>
+    <hr>
+    <Stats/>
   </div>
 </template>
 
 <script>
 import TestPhoneValidation from './packs/components/test_phone_validation.vue';
+import Stats from './packs/components/stats.vue';
 
 export default {
   components: {
-    TestPhoneValidation
+    TestPhoneValidation,
+    Stats
   }
 }
 </script>
-
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-</style>

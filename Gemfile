@@ -56,6 +56,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'webmock', '~> 3.13.0'
   gem 'vcr', '~> 6.0.0'
+  gem 'rspec-sidekiq', '~> 3.1.0'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers', '~> 4.6.0'
 end
@@ -64,5 +65,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'faraday', '~> 1.5.0'
-gem 'rexml', '~> 3.2.5'
 gem 'rack-cors', '~> 1.1.1'
+gem 'redis', '~> 4.3.1'
+gem 'sidekiq', '~> 6.2.1'
+gem 'rexml', '~> 3.2.5'

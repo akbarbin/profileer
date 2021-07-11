@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :phones do
         get :validate, on: :collection
       end
+      resources :stats, only: [:index]
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
