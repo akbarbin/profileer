@@ -54,6 +54,8 @@ group :test do
   gem 'database_cleaner-active_record', '~> 2.0.1'
   gem 'faker', '~> 2.18.0'
   gem 'simplecov', require: false
+  gem 'webmock', '~> 3.13.0'
+  gem 'vcr', '~> 6.0.0'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers', '~> 4.6.0'
 end
@@ -61,5 +63,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'faraday', '~> 1.5.0'
 gem 'rexml', '~> 3.2.5'
 gem 'rack-cors', '~> 1.1.1'

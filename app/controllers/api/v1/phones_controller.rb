@@ -7,6 +7,19 @@ class Api::V1::PhonesController < ApplicationController
     @phones = Phone.all
   end
 
+  # GET /api/v1/phones/validate
+  # GET /api/v1/phones/validate.json
+  def validate
+    service = Services::Abstract::Phones::Validate.new(validate_params[:number])
+
+    if service.call
+      @phone = service.phone
+      render :show, status: :created, location: api_v1_phone_url(@phone)
+    else
+      render json: service.errors, status: :unprocessable_entity
+    end
+  end
+
   # GET /api/v1/phones/1
   # GET /api/v1/phones/1.json
   def show
@@ -50,5 +63,9 @@ class Api::V1::PhonesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def phone_params
       params.require(:phone).permit(:number)
+    end
+
+    def validate_params
+      params.permit(:number)
     end
 end

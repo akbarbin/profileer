@@ -17,7 +17,7 @@ RSpec.describe "/api/v1/phones", type: :request do
   # Phone. As you add validations to Phone, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { number: 6285624710902 }
+    { number: 14152007986 }
   }
 
   let(:invalid_attributes) {
@@ -37,6 +37,24 @@ RSpec.describe "/api/v1/phones", type: :request do
       Phone.create! valid_attributes
       get api_v1_phones_url, headers: valid_headers, as: :json
       expect(response).to be_successful
+    end
+  end
+
+  describe "GET /validate" do
+    context "with valid parameters" do
+      it "renders a successful response" do
+        phone = Phone.create! valid_attributes
+        get validate_api_v1_phones_url, params: { number: valid_attributes[:number] }, as: :json
+        expect(response).to be_successful
+      end
+    end
+
+    context "with invalid parameters" do
+      it "renders a JSON response with errors for the new phone" do
+        phone = Phone.create! valid_attributes
+        get validate_api_v1_phones_url, params: { number: invalid_attributes[:number] }, as: :json
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
     end
   end
 
