@@ -1,1 +1,3 @@
-json.partial! "api/v1/phones/api_v1_phone", phone: @phone
+json.phone do
+  json.partial! "api/v1/phones/api_v1_phone", phone: @phone
+end

@@ -5,11 +5,12 @@ module Services
 
       def initialize(params)
         @params = params
+        @errors = {}
       end
 
       def call
         find_phone || create_phone
-        @phone.errors.empty?
+        @errors.empty?
       end
 
       private

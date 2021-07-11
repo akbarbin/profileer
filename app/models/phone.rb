@@ -1,3 +1,3 @@
 class Phone < ApplicationRecord
-  validates :number, presence: true
+  validates :number, numericality: { only_integer: true }, presence: true
 end

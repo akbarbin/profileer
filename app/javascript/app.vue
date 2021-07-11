@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <TestPhoneValidation/>
   </div>
 </template>
 
 <script>
+import TestPhoneValidation from './packs/components/test_phone_validation.vue';
+
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
+  components: {
+    TestPhoneValidation
   }
 }
 </script>

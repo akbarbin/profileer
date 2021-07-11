@@ -15,7 +15,7 @@ module Services
 
         def call
           @phone = find_phone || create_phone
-          true
+          @errors.empty?
         rescue => e
           false
         end
@@ -29,9 +29,8 @@ module Services
         def create_phone
           response = send_request
           service = Services::Phones::Create.new(phone_params(response))
-          return if service.call
+          return service.phone if service.call
           @errors = service.errors
-          raise ActiveRecord::Rollback
         end
 
         def send_request

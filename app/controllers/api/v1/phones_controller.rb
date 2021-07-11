@@ -14,9 +14,9 @@ class Api::V1::PhonesController < ApplicationController
 
     if service.call
       @phone = service.phone
-      render :show, status: :created, location: api_v1_phone_url(@phone)
+      render :show, status: :ok, location: api_v1_phone_url(@phone)
     else
-      render json: service.errors, status: :unprocessable_entity
+      render json: { errors: service.errors }, status: :unprocessable_entity
     end
   end
 
