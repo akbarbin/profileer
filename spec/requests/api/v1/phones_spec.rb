@@ -11,6 +11,10 @@ require 'rails_helper'
 # It only uses APIs available in rails and/or rspec-rails. There are a number
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
+def authenticated_header(user)
+  payload = { user_id: user.id }
+  token = JWT.encode(payload, ENV['HMAC_SECRET'])
+end
 
 RSpec.describe "/api/v1/phones", type: :request do
   # This should return the minimal set of attributes required to create a valid
@@ -29,13 +33,15 @@ RSpec.describe "/api/v1/phones", type: :request do
   # PhonesController, or in your router and rack
   # middleware. Be sure to keep this updated too.
   let(:valid_headers) {
-    {}
+    { 'Authorization': authenticated_header(user) }
   }
+
+  let(:user) { User.create!(name: 'test', email: 'test@test.com', password: 'aaaaaaaaa') }
 
   describe "GET /index" do
     it "renders a successful response" do
       Phone.create! valid_attributes
-      get api_v1_phones_url, headers: valid_headers, as: :json
+      get api_v1_phones_url, headers: { 'Authorization': authenticated_header(user) }, as: :json
       expect(response).to be_successful
     end
   end
@@ -61,7 +67,7 @@ RSpec.describe "/api/v1/phones", type: :request do
   describe "GET /show" do
     it "renders a successful response" do
       phone = Phone.create! valid_attributes
-      get api_v1_phone_url(phone), as: :json
+      get api_v1_phone_url(phone), headers: { 'Authorization': authenticated_header(user) }, as: :json
       expect(response).to be_successful
     end
   end

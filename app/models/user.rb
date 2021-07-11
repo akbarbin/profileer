@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :password, presence: true
 
   def password
-    @password ||= Password.new(password_hash)
+    @password ||= Password.new(password_hash) if password_hash.present?
   end
 
   def password=(new_password)

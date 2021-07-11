@@ -1,4 +1,6 @@
 class Api::V1::AuthenticationController < ApplicationController
+  skip_before_action :authorize_request, only: :authenticate
+
   def authenticate
     @user = User.find_by(email: params[:email])
 

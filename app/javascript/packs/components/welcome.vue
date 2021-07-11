@@ -1,9 +1,10 @@
 <template>
   <div>
     <Header/>
-    <TestPhoneValidation/>
-    <Stats/>
     <hr>
+    <TestPhoneValidation/>
+    <hr>
+    <Stats/>
   </div>
 </template>
 

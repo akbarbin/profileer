@@ -2,6 +2,7 @@
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 ENV['ABSTRACT_API_KEY'] = '556bed4b995e42eca7114b937fd0b138'
+ENV['HMAC_SECRET'] ||= 'my$ecretK3ys'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?

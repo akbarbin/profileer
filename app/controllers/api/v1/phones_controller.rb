@@ -1,4 +1,6 @@
 class Api::V1::PhonesController < ApplicationController
+  skip_before_action :authorize_request, only: :validate
+
   before_action :set_phone, only: %i[ show update destroy ]
 
   # GET /api/v1/phones

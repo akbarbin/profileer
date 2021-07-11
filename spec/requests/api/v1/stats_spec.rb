@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Api::V1::Stats", type: :request do
   describe "GET /index" do
     before do
-      Services::Stats::Create.new.call
+      Services::Stats::Get.new
     end
 
     it "returns http success" do
