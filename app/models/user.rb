@@ -3,7 +3,6 @@ require 'bcrypt'
 class User < ApplicationRecord
   # users.password_hash in the database is a :string
   include BCrypt
-  attr_reader :password_hash
 
   validates :email, presence: true,
                     uniqueness: true

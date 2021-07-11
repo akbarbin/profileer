@@ -4,7 +4,7 @@
       <h2>Sign Up</h2>
     </header>
     <form v-on:submit.prevent>
-      <p v-if="success">{{ success }}</p>
+      <p v-if="success"><mark>{{ success }}</mark></p>
       <label for="name">Name:</label>
       <input v-model="name" type="text" id="name" name="name" size="20" placeholder="Your name">
       <p v-if="errors['name']"><mark>{{ errors["name"][0] }}</mark></p>
