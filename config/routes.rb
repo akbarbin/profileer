@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         get :validate, on: :collection
       end
       resources :stats, only: [:index]
+      resources :users, only: [:create]
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

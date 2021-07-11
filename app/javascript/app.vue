@@ -1,19 +1,18 @@
 <template>
   <div id="app">
-    <TestPhoneValidation/>
-    <hr>
-    <Stats/>
+    <Navigation/>
+    <main>
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
 <script>
-import TestPhoneValidation from './packs/components/test_phone_validation.vue';
-import Stats from './packs/components/stats.vue';
+import Navigation from './packs/components/navigation'
 
 export default {
   components: {
-    TestPhoneValidation,
-    Stats
+    Navigation
   }
 }
 </script>
